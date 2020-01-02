@@ -3,14 +3,14 @@ clear
 %Getting the paths
 current_path = pwd;
 addpath(genpath(current_path))
-%% Load the images 
 
+%% Load the images 
 raw_name = 'github_demo_raw.nii';
 seg_name = 'github_demo_seg.nii';
 distal_name = 'github_demo_dital_point.nii';
 
 %% Getting the sturct to process the images
-sturct_of_images = Data_into_sturct(raw_name,distal_name,seg_name);
+sturct_of_images = Data_into_sturct(raw_name,seg_name,distal_name);
 
 %% Getting the reconsturcted image
 sturct_of_images = Create_taper_images(sturct_of_images);
