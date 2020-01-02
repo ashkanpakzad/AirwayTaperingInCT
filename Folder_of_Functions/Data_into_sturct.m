@@ -1,22 +1,20 @@
 function sturct_of_images = ....
     Data_into_sturct(...
-    raw_name,distal_name,seg_name)
+    raw_name, seg_name, distal_name)
 % I - the names of the raw, seg and distal images
 % O - a sturct of the images to compute the tapering measurmet
 %This stage we will load the images from the database - I'm assumes all
 %paths are added
 
 %% Getting the data
-[raw_header_file,raw_image,~] = Complete_image_load_nii(...
-    raw_name);
-
-[~,distal_image,~] = Complete_image_load_nii(...
-    distal_name);
+raw_header_file = niftiinfo(raw_name);
+raw_image = niftiread(raw_header_file);
 
 %Getting the segmented image
-[~,orginal_complete_segmentation,~] = Complete_image_load_nii(...
-    seg_name);
+orginal_complete_segmentation = niftiread(seg_name);
 
+%Creating distal points
+DistalPoints(seg_name,distal_name,0)
 
 %% Need to perform the distance tramsfrom
 %I'm using matlabs inmplmentation as it was not posiable to use the Nifty
