@@ -37,3 +37,9 @@ plot(arclength,log(area_array))
 ylabel('Log Area')
 xlabel('Arclength mm')
 title(['Taper = ' num2str(tapering_vaule) ' mm^{-1}'])
+
+%% Interactively view raycast results 
+% by Ashkan Pakzad (ashkanpakzad.github.io)
+
+% input .mat filename as string including file extension
+ShowTaperImages(file_path(1,:))
